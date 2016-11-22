@@ -21,7 +21,7 @@
   user-select: none;
 
   &.with-legend {
-    margin-top: @withLegendMargin;
+    margin-bottom: @withLegendMargin;
   }
 
   &[disabled] {
@@ -158,15 +158,15 @@
       }
       .rz-tick-value {
         position: absolute;
-        bottom: @ticksValuePosition;
+        top: @ticksValuePosition;
         transform: translate(-50%, 0);
       }
       .rz-tick-legend {
         position: absolute;
-        bottom: @ticksLegendPosition;
+        top: @ticksLegendPosition;
         transform: translate(-50%, 0);
         max-width: 50px;
-        white-space: normal;
+        white-space: pre;
       }
     }
 

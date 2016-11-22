@@ -1,3 +1,14 @@
+@media screen and (max-width: 600px){
+  @viewport {
+    width: device-width;
+    height: device-height;
+  }
+  body {
+    font-size: 2.6vw !important;
+  }
+}
+
+
 * { margin: 0; padding: 0; }
 body { font-family: 'Open Sans', sans-serif; color: #1f2636; font-size: 14px; padding-bottom: 40px; }
 header { background: #0db9f0; color: #fff; margin: -40px; margin-bottom: 40px; text-align: center; padding: 40px 0; }
