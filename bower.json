@@ -26,5 +26,9 @@
   ],
   "devDependencies": {
     "angular": "~1.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TimmyParkwayd/angularjs-slider-touch.git"
   }
 }
