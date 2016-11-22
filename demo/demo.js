@@ -328,6 +328,7 @@ app.controller('MainCtrl', function($scope, $rootScope, $timeout, $uibModal) {
     }
   };
 
+
   //Slider with ticks values and legend
   $scope.slider_ticks_legend = {
     value: 1.1,
@@ -337,282 +338,44 @@ app.controller('MainCtrl', function($scope, $rootScope, $timeout, $uibModal) {
       hideLimitLabels: true,
       stepsArray: [
         {value: 0.1, legend: '100%'},
-        {value: 0.3, legend: '90%'},
-        {value: 0.5, legend: '80%'},
-        {value: 0.7, legend: '70%'},
-        {value: 0.9, legend: '60%'},
-        {value: 1.1, legend: '50%'},
-        {value: 1.3, legend: '60%'},
-        {value: 1.5, legend: '70%'},
-        {value: 1.7, legend: '80%'},
-        {value: 1.9, legend: '90%'},
+        {value: 0.3},
+        {value: 0.5},
+        {value: 0.7},
+        {value: 0.9},
+        {value: 1.1, legend: '50%/50%'},
+        {value: 1.3},
+        {value: 1.5},
+        {value: 1.7},
+        {value: 1.9},
         {value: 2.1, legend: '100%'}
-      ]
-    }
-  };
-
-  //Slider with custom tick formatting
-  $scope.slider_tick_color = {
-    value: 0,
-    options: {
-      ceil: 1200,
-      floor: 0,
-      step: 50,
-      showSelectionBar: true,
-      showTicks: true,
-      getTickColor: function(value) {
-        if (value < 300)
-          return 'red';
-        if (value < 600)
-          return 'orange';
-        if (value < 900)
-          return 'yellow';
-        return '#2AE02A';
-      }
-    }
-  };
-
-  var dates = [];
-  for (var i = 1; i <= 31; i++) {
-    dates.push(new Date(2016, 7, i));
-  }
-  $scope.slider_dates = {
-    value: new Date(2016, 7, 10),
-    options: {
-      stepsArray: dates,
-      translate: function(date) {
-        if (date != null)
-          return date.toDateString();
-        return '';
-      }
-    }
-  };
-
-  //Slider with draggable range
-  $scope.slider_draggable_range = {
-    minValue: 1,
-    maxValue: 8,
-    options: {
-      ceil: 10,
-      floor: 0,
-      draggableRange: true
-    }
-  };
-
-  //Slider with draggable range only
-  $scope.slider_draggable_range_only = {
-    minValue: 4,
-    maxValue: 6,
-    options: {
-      ceil: 10,
-      floor: 0,
-      draggableRangeOnly: true
-    }
-  };
-
-  //Vertical sliders
-  $scope.verticalSlider1 = {
-    value: 0,
-    options: {
-      floor: 0,
-      ceil: 10,
-      vertical: true
-    }
-  };
-  $scope.verticalSlider2 = {
-    minValue: 20,
-    maxValue: 80,
-    options: {
-      floor: 0,
-      ceil: 100,
-      vertical: true
-    }
-  };
-  $scope.verticalSlider3 = {
-    value: 5,
-    options: {
-      floor: 0,
-      ceil: 10,
-      vertical: true,
-      ticksArray: [0, 1, 5, 10],
-      showTicksValues: true
-    }
-  };
-  $scope.verticalSlider4 = {
-    minValue: 1,
-    maxValue: 5,
-    options: {
-      floor: 0,
-      ceil: 6,
-      vertical: true,
-      showTicksValues: true
-    }
-  };
-  $scope.verticalSlider5 = {
-    value: 50,
-    options: {
-      floor: 0,
-      ceil: 100,
-      vertical: true,
-      showSelectionBar: true
-    }
-  };
-  $scope.verticalSlider6 = {
-    value: 6,
-    options: {
-      floor: 0,
-      ceil: 6,
-      vertical: true,
-      showSelectionBar: true,
-      showTicksValues: true,
-      ticksValuesTooltip: function(v) {
-        return 'Tooltip for ' + v;
-      }
-    }
-  };
-
-  //Read-only slider
-  $scope.read_only_slider = {
-    value: 50,
-    options: {
-      ceil: 100,
-      floor: 0,
-      readOnly: true
-    }
-  };
-
-  //Disabled slider
-  $scope.disabled_slider = {
-    minValue: 20,
-    maxValue: 80,
-    options: {
-      ceil: 100,
-      floor: 0,
-      showTicks: 10,
-      disabled: true,
-      draggableRange: true
-    }
-  };
-
-  // Slider inside ng-show
-  $scope.visible = false;
-  $scope.slider_toggle = {
-    value: 5,
-    options: {
-      ceil: 10,
-      floor: 0
-    }
-  };
-  $scope.toggle = function() {
-    $scope.visible = !$scope.visible;
-    $timeout(function() {
-      $scope.$broadcast('rzSliderForceRender');
-    });
-  };
-
-  //Slider inside modal
-  $scope.percentages = {
-    normal: {
-      low: 15
-    },
-    range: {
-      low: 10,
-      high: 50
-    }
-  };
-  $scope.openModal = function() {
-    var modalInstance = $uibModal.open({
-      templateUrl: 'sliderModal.html',
-      controller: function($scope, $uibModalInstance, values) {
-        $scope.percentages = JSON.parse(JSON.stringify(values)); //Copy of the object in order to keep original values in $scope.percentages in parent controller.
-
-
-        var formatToPercentage = function(value) {
-          return value + '%';
-        };
-
-        $scope.percentages.normal.options = {
-          floor: 0,
-          ceil: 100,
-          translate: formatToPercentage,
-          showSelectionBar: true
-        };
-        $scope.percentages.range.options = {
-          floor: 0,
-          ceil: 100,
-          translate: formatToPercentage
-        };
-        $scope.ok = function() {
-          $uibModalInstance.close($scope.percentages);
-        };
-        $scope.cancel = function() {
-          $uibModalInstance.dismiss();
-        };
+      ],
+      onStart : function (sliderId, modelValue, highValue, pointerType){
+        $scope.checkValue(modelValue);
       },
-      resolve: {
-        values: function() {
-          return $scope.percentages;
-        }
+      onChange : function (sliderId, modelValue, highValue, pointerType){
+        $scope.checkValue(modelValue);
       }
-    });
-    modalInstance.result.then(function(percentages) {
-      $scope.percentages = percentages;
-    });
-    modalInstance.rendered.then(function() {
-      $rootScope.$broadcast('rzSliderForceRender'); //Force refresh sliders on render. Otherwise bullets are aligned at left side.
-    });
-  };
-
-
-  //Slider inside tabs
-  $scope.tabSliders = {
-    slider1: {
-      value: 100
-    },
-    slider2: {
-      value: 200
-    }
-  };
-  $scope.refreshSlider = function() {
-    $timeout(function() {
-      $scope.$broadcast('rzSliderForceRender');
-    });
-  };
-
-  //Slider config with angular directive inside custom template
-  $scope.slider_custom_directive_inside_template = {
-    minValue: 20,
-    maxValue: 80,
-    options: {
-      floor: 0,
-      ceil: 100
     }
   };
 
-  //Slider with draggable range
-  $scope.slider_all_options = {
-    minValue: 2,
-    options: {
-      floor: 0,
-      ceil: 10,
-      step: 1,
-      precision: 0,
-      draggableRange: false,
-      showSelectionBar: false,
-      hideLimitLabels: false,
-      readOnly: false,
-      disabled: false,
-      showTicks: false,
-      showTicksValues: false
+
+  $scope.checkValue = function (modelValue, flag) {
+    var _tooltip = '';
+
+    if (modelValue >= 0.1 && modelValue < 1.1) {
+      _tooltip = 'A presentation of the theory or technique/tools, followed by exercises, case-studies or group discussions ';
+    } else if (modelValue === 1.1) {
+      _tooltip = 'Both in same amounts';
+    } else if (modelValue >= 1.3 && modelValue <= 2.1) {
+      _tooltip = 'An exercise or a case-study or a group discussion, followed by a presentation of the theory or technique/tools';
     }
+
+    $scope.tooltipText = _tooltip;
+
+    if (flag) return _tooltip;
   };
-  $scope.toggleHighValue = function() {
-    if ($scope.slider_all_options.maxValue != null) {
-      $scope.slider_all_options.maxValue = undefined;
-    } else {
-      $scope.slider_all_options.maxValue = 8;
-    }
-  }
+
+  $scope.tooltipText = $scope.checkValue($scope.slider_ticks_legend.value, true);
 });
 
 app.directive('clickableLabel', function() {
