@@ -1,12 +1,12 @@
 /*! angularjs-slider - v5.8.7 - 
  (c) Rafal Zajac <rzajac@gmail.com>, Valentin Hervieu <valentin@hervieu.me>, Jussi Saarivirta <jusasi@gmail.com>, Angelin Sirbu <angelin.sirbu@gmail.com> - 
  https://github.com/angular-slider/angularjs-slider - 
- 2016-11-09 */
+ 2016-11-22 */
 .rzslider {
   position: relative;
   display: inline-block;
   width: 100%;
-  height: 4px;
+  height: 2px;
   margin: 35px 0 15px 0;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -16,7 +16,7 @@
 }
 
 .rzslider.with-legend {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .rzslider[disabled] {
@@ -60,9 +60,9 @@
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 32px;
-  padding-top: 16px;
-  margin-top: -16px;
+  height: 16px;
+  padding-top: 8px;
+  margin-top: -8px;
   box-sizing: border-box;
 }
 
@@ -74,48 +74,48 @@
   left: 0;
   z-index: 1;
   width: 100%;
-  height: 4px;
+  height: 2px;
   background: #d8e0f3;
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  -webkit-border-radius: 1px;
+     -moz-border-radius: 1px;
+          border-radius: 1px;
 }
 
 .rzslider .rz-bar.rz-selection {
   z-index: 2;
-  background: #0db9f0;
-  -webkit-border-radius: 2px;
-     -moz-border-radius: 2px;
-          border-radius: 2px;
+  background: #ff0000;
+  -webkit-border-radius: 1px;
+     -moz-border-radius: 1px;
+          border-radius: 1px;
 }
 
 .rzslider .rz-pointer {
-  top: -14px;
+  top: -7px;
   z-index: 3;
-  width: 32px;
-  height: 32px;
+  width: 16px;
+  height: 16px;
   cursor: pointer;
-  background-color: #0db9f0;
-  -webkit-border-radius: 16px;
-     -moz-border-radius: 16px;
-          border-radius: 16px;
+  background-color: #ff0000;
+  -webkit-border-radius: 8px;
+     -moz-border-radius: 8px;
+          border-radius: 8px;
 }
 
 .rzslider .rz-pointer:after {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 8px;
-  height: 8px;
+  top: 6px;
+  left: 6px;
+  width: 4px;
+  height: 4px;
   background: #ffffff;
-  -webkit-border-radius: 4px;
-     -moz-border-radius: 4px;
-          border-radius: 4px;
+  -webkit-border-radius: 2px;
+     -moz-border-radius: 2px;
+          border-radius: 2px;
   content: '';
 }
 
 .rzslider .rz-pointer:hover:after {
-  background-color: #ffffff;
+  background-color: #ff0000;
 }
 
 .rzslider .rz-pointer.rz-active {
@@ -123,18 +123,18 @@
 }
 
 .rzslider .rz-pointer.rz-active:after {
-  background-color: #451aff;
+  background-color: #ffffff;
 }
 
 .rzslider .rz-bubble {
-  bottom: 16px;
+  bottom: 8px;
   padding: 1px 3px;
   color: #55637d;
   cursor: default;
 }
 
 .rzslider .rz-bubble.rz-selection {
-  top: 16px;
+  top: 8px;
 }
 
 .rzslider .rz-bubble.rz-limit {
@@ -143,7 +143,7 @@
 
 .rzslider .rz-ticks {
   position: absolute;
-  top: -3px;
+  top: -1.5px;
   left: 0;
   z-index: 1;
   width: 100%;
@@ -157,9 +157,9 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 10px;
-  height: 10px;
-  margin-left: 11px;
+  width: 5px;
+  height: 5px;
+  margin-left: 5.5px;
   text-align: center;
   cursor: pointer;
   background: #d8e0f3;
@@ -167,7 +167,7 @@
 }
 
 .rzslider .rz-ticks .rz-tick.rz-selected {
-  background: #0db9f0;
+  background: #ff0000;
 }
 
 .rzslider .rz-ticks .rz-tick .rz-tick-value {
@@ -191,7 +191,7 @@
 
 .rzslider.rz-vertical {
   position: relative;
-  width: 4px;
+  width: 2px;
   height: 100%;
   padding: 0;
   margin: 0 20px;
@@ -207,46 +207,46 @@
 .rzslider.rz-vertical .rz-bar-wrapper {
   top: auto;
   left: 0;
-  width: 32px;
+  width: 16px;
   height: 100%;
-  padding: 0 0 0 16px;
-  margin: 0 0 0 -16px;
+  padding: 0 0 0 8px;
+  margin: 0 0 0 -8px;
 }
 
 .rzslider.rz-vertical .rz-bar {
   bottom: 0;
   left: auto;
-  width: 4px;
+  width: 2px;
   height: 100%;
 }
 
 .rzslider.rz-vertical .rz-pointer {
   top: auto;
   bottom: 0;
-  left: -14px !important;
+  left: -7px !important;
 }
 
 .rzslider.rz-vertical .rz-bubble {
   bottom: 0;
-  left: 16px !important;
+  left: 8px !important;
   margin-left: 3px;
 }
 
 .rzslider.rz-vertical .rz-bubble.rz-selection {
   top: auto;
-  left: 16px !important;
+  left: 8px !important;
 }
 
 .rzslider.rz-vertical .rz-ticks {
   top: 0;
-  left: -3px;
+  left: -1.5px;
   z-index: 1;
   width: 0;
   height: 100%;
 }
 
 .rzslider.rz-vertical .rz-ticks .rz-tick {
-  margin-top: 11px;
+  margin-top: 5.5px;
   margin-left: auto;
   vertical-align: middle;
 }
