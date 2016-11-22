@@ -12,7 +12,7 @@
   display: inline-block;
   position: relative;
   height: @barDimension;
-  width: 100%;
+  width: 80%;
   margin: 35px 0 15px 0;
   vertical-align: middle;
   -webkit-user-select: none;
@@ -21,7 +21,7 @@
   user-select: none;
 
   &.with-legend {
-    margin-bottom: @withLegendMargin;
+    margin-top: @withLegendMargin;
   }
 
   &[disabled] {
@@ -158,12 +158,12 @@
       }
       .rz-tick-value {
         position: absolute;
-        top: @ticksValuePosition;
+        bottom: @ticksValuePosition;
         transform: translate(-50%, 0);
       }
       .rz-tick-legend {
         position: absolute;
-        top: @ticksLegendPosition;
+        bottom: @ticksLegendPosition;
         transform: translate(-50%, 0);
         max-width: 50px;
         white-space: normal;
@@ -237,11 +237,11 @@
         margin-top: @handleSize / 2 - @ticksWidth / 2; // for centering
         .rz-tick-value {
           left: @ticksValuePositionOnVertical;
-          top: initial;
+          bottom: initial;
           transform: translate(0, -28%);
         }
         .rz-tick-legend {
-          top: initial;
+          bottom: initial;
           right: @ticksLegendPosition;
           transform: translate(0, -28%);
           max-width: none;

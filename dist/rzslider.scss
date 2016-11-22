@@ -5,7 +5,7 @@
 .rzslider {
   position: relative;
   display: inline-block;
-  width: 100%;
+  width: 80%;
   height: 2px;
   margin: 35px 0 15px 0;
   vertical-align: middle;
@@ -16,7 +16,7 @@
 }
 
 .rzslider.with-legend {
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
 .rzslider[disabled] {
@@ -172,13 +172,13 @@
 
 .rzslider .rz-ticks .rz-tick .rz-tick-value {
   position: absolute;
-  top: -30px;
+  bottom: -30px;
   transform: translate(-50%, 0);
 }
 
 .rzslider .rz-ticks .rz-tick .rz-tick-legend {
   position: absolute;
-  top: 24px;
+  bottom: 24px;
   max-width: 50px;
   white-space: normal;
   transform: translate(-50%, 0);
@@ -252,14 +252,14 @@
 }
 
 .rzslider.rz-vertical .rz-ticks .rz-tick .rz-tick-value {
-  top: initial;
+  bottom: initial;
   left: 24px;
   transform: translate(0, -28%);
 }
 
 .rzslider.rz-vertical .rz-ticks .rz-tick .rz-tick-legend {
-  top: initial;
   right: 24px;
+  bottom: initial;
   max-width: none;
   white-space: nowrap;
   transform: translate(0, -28%);

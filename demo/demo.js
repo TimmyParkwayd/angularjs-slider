@@ -330,19 +330,23 @@ app.controller('MainCtrl', function($scope, $rootScope, $timeout, $uibModal) {
 
   //Slider with ticks values and legend
   $scope.slider_ticks_legend = {
-    value: 5,
+    value: 1.1,
     options: {
-      showTicksValues: true,
+      showTicks: true,
+      hidePointerLabels: true,
+      hideLimitLabels: true,
       stepsArray: [
-        {value: 1, legend: 'Very poor'},
-        {value: 2},
-        {value: 3, legend: 'Fair'},
-        {value: 4},
-        {value: 5, legend: 'Average'},
-        {value: 6},
-        {value: 7, legend: 'Good'},
-        {value: 8},
-        {value: 9, legend: 'Excellent'}
+        {value: 0.1, legend: '100%'},
+        {value: 0.3, legend: '90%'},
+        {value: 0.5, legend: '80%'},
+        {value: 0.7, legend: '70%'},
+        {value: 0.9, legend: '60%'},
+        {value: 1.1, legend: '50%'},
+        {value: 1.3, legend: '60%'},
+        {value: 1.5, legend: '70%'},
+        {value: 1.7, legend: '80%'},
+        {value: 1.9, legend: '90%'},
+        {value: 2.1, legend: '100%'}
       ]
     }
   };
